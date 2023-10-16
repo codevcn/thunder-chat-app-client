@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.ant-form-item-explain-error{
+  font-size: 13px;
+}

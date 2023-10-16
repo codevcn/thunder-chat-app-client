@@ -1,0 +1,1 @@
+export const MAX_LEN_OF_ERROR_MESSAGE: number = 100
