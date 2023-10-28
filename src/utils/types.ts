@@ -1,14 +1,17 @@
 import { AxiosError } from "axios"
 
 export type TUser = {
-    id: number
-    email: string
-    password: string
-    firstName: string
-    lastName: string
-    birthday: string
-    createdAt: Date
+    id: number,
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    birthday: string,
+    createdAt: Date,
+    avatar: string,
 }
+
+export type TUserWithoutPassword = Omit<TUser, 'password'>
 
 export type THttpErrorResBody = {
     name: string,
@@ -19,11 +22,11 @@ export type THttpErrorResBody = {
 }
 
 export type TAxiosError = {
-    originalError: AxiosError<THttpErrorResBody>
-    statusCode: number
-    message: string
-    isUserError: boolean
-    clientMessage: string
+    originalError: AxiosError<THttpErrorResBody>,
+    statusCode: number,
+    message: string,
+    isUserError: boolean,
+    clientMessage: string,
 }
 
 export type TSuccess = {
@@ -51,4 +54,4 @@ export type TToast = {
 
 export type TToastHanlder = (message: string) => TToast
 
-export type TUseAuthRedirect = ((url?: string) => (() => void))
+export type TUseAuthRedirect = (({ refresh }: { refresh: boolean }) => (() => void))

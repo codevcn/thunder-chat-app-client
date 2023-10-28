@@ -9,13 +9,13 @@ import {
     faLock,
     faEnvelope,
 } from '@fortawesome/free-solid-svg-icons'
-import { Spinner } from '@/materials/spinner'
+import { Spinner } from '@/materials/Spinner'
 import { postLoginUser } from '@/apis/auth'
 import toast from 'react-hot-toast'
 import axiosErrorHandler from '@/utils/axiosErrorHanlder'
 import axios from 'axios'
 import { Form, Input } from 'antd'
-import { useAuthRedirect } from '@/hooks/useRedirect'
+import { useAuthRedirect } from '@/hooks/redirect'
 
 type TLogInUserForm = {
     email: string
@@ -28,7 +28,7 @@ const LoginForm = ({
     typedEmail: string,
 }) => {
     const [loading, setLoading] = useState<boolean>(false)
-    const redirect = useAuthRedirect()
+    const redirect = useAuthRedirect({ refresh: true })
 
     const loginUser = async (form_data: TLogInUserForm) => {
         setLoading(true)
@@ -81,7 +81,7 @@ const LoginForm = ({
                         placeholder='Enter your first name...'
                         id='RegisterForm-firstName'
                         prefix={<FontAwesomeIcon icon={faEnvelope} />}
-                        className='placeholder:text-xs py-5 pl-3 pr-4 gap-x-1 opacity-30 pointer-events-none'
+                        className='placeholder:text-xs pl-3 pr-4 gap-x-1 opacity-50 pointer-events-none'
                     />
                 </Form.Item>
 

@@ -16,12 +16,15 @@ export const CustomAntTheme: ThemeConfig = {
             primaryShadow: '0 0 0 #fff',
             textHoverBg: '#212121',
             colorText: '#fff',
-        }
+        },
     },
     token: {
         colorPrimary: '#6b7280',
         colorPrimaryHover: '#6b7280',
+        colorPrimaryBgHover: '#6b7280',
         fontSize: 14,
         lineWidth: 2,
+        purple: '#766AC8',
+        colorInfo: 'white',
     },
 }

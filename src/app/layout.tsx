@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import { ConfigProvider } from 'antd'
 import { CustomAntTheme } from '@/styles/theme'
 import StyledComponentsRegistry from '@/lib/AntdRegistry'
+import { ReduxProvider } from '@/lib/ReduxProvider'
 
 // config css for fontawesome
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -29,16 +30,18 @@ export default function RootLayout({
             <body className={workSans.className}>
 
                 <StyledComponentsRegistry>
-                    <div
-                        id="App"
-                        className='bg-regular-bg-DarkGray'
+                    <ConfigProvider
+                        theme={CustomAntTheme}
                     >
-                        <ConfigProvider
-                            theme={CustomAntTheme}
-                        >
-                            {children}
-                        </ConfigProvider>
-                    </div>
+                        <ReduxProvider>
+                            <div
+                                id="App"
+                                className='bg-regular-DarkGray'
+                            >
+                                {children}
+                            </div>
+                        </ReduxProvider>
+                    </ConfigProvider>
                 </StyledComponentsRegistry>
 
                 <Toaster

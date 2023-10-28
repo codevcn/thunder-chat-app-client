@@ -13,11 +13,11 @@ const postRegisterUser = (data: TRegisterUserData) =>
 const postLoginUser = (data: TLoginUserData) =>
     client_axios.post<TSuccess, AxiosResponse<TSuccess>, TLoginUserData>('/auth/login', data, request_config)
 
-const authUser = () =>
-    client_axios.post<TUser>('/user/authUser', request_config)
+const postCheckAuth = () =>
+    client_axios.post<TUser>('/auth/checkAuth', {}, request_config)
 
 export {
     postRegisterUser,
     postLoginUser,
-    authUser,
+    postCheckAuth,
 }

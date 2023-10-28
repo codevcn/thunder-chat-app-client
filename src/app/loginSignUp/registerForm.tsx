@@ -17,8 +17,9 @@ import { postRegisterUser } from '@/apis/auth'
 import axios from 'axios'
 import axiosErrorHandler from '@/utils/axiosErrorHanlder'
 import toast from 'react-hot-toast'
-import { Spinner } from '@/materials/spinner'
+import { Spinner } from '@/materials/Spinner'
 import { Select, Input, Tooltip, Form } from 'antd'
+import { useAuthRedirect } from '@/hooks/redirect'
 
 const Warning = ({ text }: { text: string }) => {
     return (
@@ -175,6 +176,7 @@ const NameAndPassword = ({
     preData: TRegisterUserForm,
 }) => {
     const [loading, setLoading] = useState<boolean>(false)
+    const redirect = useAuthRedirect({ refresh: true })
 
     const submit = async (data: TRegisterUserForm) => {
         try {
@@ -187,6 +189,8 @@ const NameAndPassword = ({
             })
 
             toast.success('Hooray!! Register successfully')
+
+            redirect()
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 toast.error(axiosErrorHandler(error).message)

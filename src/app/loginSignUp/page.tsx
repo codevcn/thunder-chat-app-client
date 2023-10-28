@@ -10,7 +10,7 @@ import axios from 'axios'
 import axiosErrorHandler from '@/utils/axiosErrorHanlder'
 import RegisterForm from './registerForm'
 import LoginForm from '@/app/loginSignUp/loginForm'
-import { Spinner } from '@/materials/spinner'
+import { Spinner } from '@/materials/Spinner'
 import validator from 'validator'
 import { Form, Input } from 'antd'
 
