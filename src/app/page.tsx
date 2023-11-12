@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import AppLogo from '@/assets/images/logo.svg'
 import Link from 'next/link'
+import { Auth } from './redirect'
 
 interface Nav {
     label: string
@@ -73,26 +74,6 @@ const IntroText = () => {
     )
 }
 
-const AuthBtn = () => {
-    return (
-        <div className='AuthBtn mt-14 w-5/12 flex flex-col items-center'>
-            <Link
-                href='/loginSignUp'
-                className='rounded-full transition border-2 w-5/6 p-5 pt-3 pb-3 bg-black text-white block text-center hover:bg-white hover:text-black'
-            >
-                Login / Register
-            </Link>
-
-            <Link
-                href='/loginGuest'
-                className='rounded-full transition border-2 w-5/6 p-5 pt-3 pb-3 mt-5 bg-black text-white block text-center hover:bg-white hover:text-black'
-            >
-                Login as guest
-            </Link>
-        </div>
-    )
-}
-
 export default function HomePage() {
     return (
         <div className='HomePage bg-white text-black flex flex-col items-center'>
@@ -101,7 +82,7 @@ export default function HomePage() {
 
             <IntroText />
 
-            <AuthBtn />
+            <Auth />
 
         </div>
     )

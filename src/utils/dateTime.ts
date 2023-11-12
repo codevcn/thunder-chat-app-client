@@ -33,7 +33,7 @@ const is_leap_year = (year: number): boolean => {
     return false
 }
 
-const get_years_set = (
+const get_years_list = (
     gap: number,
     end_year: number = new Date().getFullYear()
 ): number[] => {
@@ -53,6 +53,6 @@ const format_date_mysql = (year: number, month: number, day: number): string => 
 export {
     get_days_in_month,
     is_leap_year,
-    get_years_set,
+    get_years_list,
     format_date_mysql,
 }

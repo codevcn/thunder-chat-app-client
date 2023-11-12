@@ -1,10 +1,9 @@
 'use client'
 
-import { useAppSelector } from "@/hooks/redux"
-import { Avatar, Badge, Space, Tooltip, Flex } from 'antd'
+import { Avatar, Badge, Tooltip, Flex } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faUser, faHouse, faBell, faGear,
+    faUser, faHouse, faBell, faGear, faComments,
 } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link"
 
@@ -17,8 +16,12 @@ type Navs = {
 const navs: Navs = [
     {
         label: 'Home',
-        href: '/conversation',
+        href: '/',
         icon: <FontAwesomeIcon icon={faHouse} />
+    }, {
+        label: 'Conversation',
+        href: '/conversation',
+        icon: <FontAwesomeIcon icon={faComments} />
     }, {
         label: 'Nofication',
         href: '/nofication',
@@ -27,11 +30,10 @@ const navs: Navs = [
 ]
 
 export const Navigation = () => {
-    const userInfo = useAppSelector(state => state.user.userInfo)
 
     return (
         <Flex
-            className="h-screen bg-regular-DarkGray border-r border-r-regular-LightGray p-4 pt-6 pb-6 w-min box-border"
+            className="h-screen bg-regular-DarkGray border-r border-r-regular-LightGray pt-6 pb-3 w-[55px] box-border"
             justify="space-between"
             vertical
             gap="middle"
@@ -43,32 +45,26 @@ export const Navigation = () => {
             >
                 <Link
                     href="/account"
+                    className="flex"
                 >
                     <Badge
                         dot
                         color="green"
+                        className="m-auto"
                     >
                         <div
                             className="cursor-pointer transition duration-200 hover:scale-125"
                         >
-                            {
-                                userInfo && (
-                                    userInfo.avatar ?
-                                        <Avatar src={userInfo.avatar} />
-                                        :
-                                        <Avatar icon={<FontAwesomeIcon icon={faUser} />} />
-                                )
-                            }
+                            <Avatar icon={<FontAwesomeIcon icon={faUser} />} />
                         </div>
                     </Badge>
                 </Link>
             </Tooltip>
 
-            <Space
-                direction="vertical"
+            <Flex
                 align="center"
                 className="w-full"
-                size="large"
+                vertical
             >
                 {
                     navs.map(({ label, href, icon }) => (
@@ -80,9 +76,10 @@ export const Navigation = () => {
                         >
                             <Link
                                 href={href}
+                                className="flex w-[55px] cursor-pointer transition duration-200 hover:bg-regular-LightGray py-3"
                             >
                                 <div
-                                    className="cursor-pointer transition duration-200 hover:scale-125"
+                                    className="m-auto"
                                 >
                                     {icon}
                                 </div>
@@ -90,18 +87,19 @@ export const Navigation = () => {
                         </Tooltip>
                     ))
                 }
-            </Space>
+            </Flex>
 
             <Tooltip
                 placement="right"
-                title="Setting"
+                title="Settings"
                 color="purple"
             >
                 <Link
-                    href="/setting"
+                    href="/settings"
+                    className="flex w-[55px] cursor-pointer transition duration-200 hover:bg-regular-LightGray py-3"
                 >
                     <div
-                        className="flex justify-center cursor-pointer transition duration-200 hover:scale-125 w-full"
+                        className="m-auto"
                     >
                         <FontAwesomeIcon icon={faGear} />
                     </div>

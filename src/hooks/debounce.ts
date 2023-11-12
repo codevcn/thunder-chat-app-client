@@ -1,8 +1,10 @@
 
 type TUseDebounce = (delay: number) => (
     (
-        handler: (...params: any[]) => void
-    ) => void
+        handler: (...params: any) => void
+    ) => (
+            (...params: any) => void
+        )
 )
 
 export const useDebounce: TUseDebounce = (delay) => (handler) => {

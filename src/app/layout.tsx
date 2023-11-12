@@ -6,6 +6,7 @@ import { ConfigProvider } from 'antd'
 import { CustomAntTheme } from '@/styles/theme'
 import StyledComponentsRegistry from '@/lib/AntdRegistry'
 import { ReduxProvider } from '@/lib/ReduxProvider'
+import { BackgroundProvider } from '@/lib/BackgroundProvider'
 
 // config css for fontawesome
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -34,12 +35,14 @@ export default function RootLayout({
                         theme={CustomAntTheme}
                     >
                         <ReduxProvider>
-                            <div
-                                id="App"
-                                className='bg-regular-DarkGray'
-                            >
-                                {children}
-                            </div>
+                            <BackgroundProvider>
+                                <div
+                                    id="App"
+                                    className='bg-regular-DarkGray'
+                                >
+                                    {children}
+                                </div>
+                            </BackgroundProvider>
                         </ReduxProvider>
                     </ConfigProvider>
                 </StyledComponentsRegistry>

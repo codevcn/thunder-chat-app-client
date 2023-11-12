@@ -11,7 +11,7 @@ import {
     faEyeSlash,
     faPaperPlane
 } from '@fortawesome/free-solid-svg-icons'
-import { get_days_in_month, get_years_set } from '@/utils/dateTime'
+import { get_days_in_month, get_years_list } from '@/utils/dateTime'
 import { PASSWORD_REGEX } from '@/utils/regex'
 import { postRegisterUser } from '@/apis/auth'
 import axios from 'axios'
@@ -135,7 +135,7 @@ const DateOfBirth = ({
                                     placeholder="Select year"
                                     onChange={(value: string) => handleChangeDate(value, 'year')}
                                     options={
-                                        get_years_set(100).map(year => ({
+                                        get_years_list(100).map(year => ({
                                             value: year,
                                             label: year,
                                         }))
