@@ -6,25 +6,29 @@ export type TUser = {
     password: string
     firstName: string
     lastName: string
-    birthday: string
-    username: string
+    birthday: Date | null
+    createdAt: Date
+    username: string | null
 }
 
 export type TProfile = {
     id: number
-    about: string
-    avatar: string
+    about: string | null
+    avatar: string | null
     userId: number
+    createdAt: Date
 }
 
-export type TUserWithProfile = TUser & { Profile?: Omit<TProfile, 'id' | 'userId'> }
+export type TUserWithProfile = TUser & { Profile?: Omit<TProfile, "id" | "userId"> | null }
 
-export type TUserWithoutPassword = Omit<TUser, 'password'>
+export type TUserWithoutPassword = Omit<TUser, "password">
 
 export type TConversation = {
     id: number
     creatorId: number
     recipientId: number
+    createdAt: Date
+    lastMsgSentId: number | null
 }
 
 export type TMessage = {
@@ -35,63 +39,69 @@ export type TMessage = {
     createdAt: string
 }
 
-export type TConversationWithMessages = TConversation & { messages: TMessage[] }
-
-export type THttpErrorResBody = {
-    name: string,
-    message: string,
-    trace: string,
-    timestamp: string,
-    isUserException: boolean,
+// Conversation Message Type
+export type TConvMessage = TMessage & {
+    isNewMsg?: boolean
 }
 
+export type TConversationWithMessages = TConversation & { messages: TMessage[] }
+
+export type THttpErrorResBody =
+    | {
+          name: string
+          message: string
+          trace: string
+          timestamp: string
+          isUserException: boolean
+      }
+    | string
+
 export type TAxiosError = {
-    originalError: AxiosError<THttpErrorResBody>,
-    statusCode: number,
-    message: string,
-    isUserError: boolean,
-    clientMessage: string,
+    originalError: AxiosError<THttpErrorResBody>
+    statusCode: number
+    message: string
+    isUserError: boolean
+    clientMessage: string
 }
 
 export type TSuccess = {
-    success: boolean //true
+    success: boolean // always true
 }
 
 export type TRegisterUserParams = {
-    email: string,
-    password: string,
-    firstName: string,
-    lastName: string,
-    birthday: Date,
+    email: string
+    password: string
+    firstName: string
+    lastName: string
+    birthday: Date
 }
 
 export type TLoginUserParams = {
-    email: string,
-    password: string,
+    email: string
+    password: string
 }
 
-export type TUseAuthRedirect = (({ refresh }: { refresh: boolean }) => (() => void))
+export type TUseAuthRedirect = ({ refresh }: { refresh: boolean }) => () => void
 
 export type TSearchConversationParams = {
-    email?: string,
-    username?: string,
-    nameOfUser?: string,
+    email?: string
+    username?: string
+    nameOfUser?: string
 }
 
 export type TConversationCard = {
-    id: number,
-    avatar: string,
-    title: string,
-    subtitle: string,
-    lastMessageTime: string,
-    pinIndex: number,
+    id: number
+    avatar: string
+    title: string
+    subtitle: string
+    lastMessageTime: string
+    pinIndex: number
 }
 
 export type TStartConversationParams = {
-    recipientId: number,
+    recipientId: number
 }
 
-export type TDirectConversation =
-    TConversation & {
-        recipient: TUserWithProfile,
-    }
+export type TDirectConversation = TConversation & {
+    recipient: TUserWithProfile
+}

@@ -1,9 +1,9 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { TUserWithoutPassword } from '@/utils/types'
-import { checkAuthThunk } from '../auth/authThunks'
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import type { TUserWithoutPassword } from "@/utils/types"
+import { checkAuthThunk } from "../auth/authThunks"
 
 type TAuthState = {
-    user: TUserWithoutPassword | null,
+    user: TUserWithoutPassword | null
 }
 
 const initialState: TAuthState = {
@@ -11,14 +11,17 @@ const initialState: TAuthState = {
 }
 
 export const userSlice = createSlice({
-    name: 'user',
+    name: "user",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(checkAuthThunk.fulfilled, (state, action: PayloadAction<TUserWithoutPassword>) => {
-            state.user = action.payload
-        })
-    }
+        builder.addCase(
+            checkAuthThunk.fulfilled,
+            (state, action: PayloadAction<TUserWithoutPassword>) => {
+                state.user = action.payload
+            }
+        )
+    },
 })
 
-export const { } = userSlice.actions
+export const {} = userSlice.actions

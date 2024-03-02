@@ -1,31 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { checkAuthThunk } from './authThunks'
-import { EAuthStatuses } from '@/utils/enums'
+import { createSlice } from "@reduxjs/toolkit"
+import { checkAuthThunk } from "./authThunks"
+import { EAuthStatus } from "@/utils/enums"
 
 type TAuthState = {
-    authStatus: EAuthStatuses,
+    authStatus: EAuthStatus
 }
 
 const initialState: TAuthState = {
-    authStatus: EAuthStatuses.UNKNOWN,
+    authStatus: EAuthStatus.UNKNOWN,
 }
 
 export const authSlice = createSlice({
-    name: 'auth',
+    name: "auth",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(checkAuthThunk.pending, (state, action) => {
-                state.authStatus = EAuthStatuses.UNKNOWN
+                state.authStatus = EAuthStatus.UNKNOWN
             })
             .addCase(checkAuthThunk.fulfilled, (state, action) => {
-                state.authStatus = EAuthStatuses.AUTHENTICATED
+                state.authStatus = EAuthStatus.AUTHENTICATED
             })
             .addCase(checkAuthThunk.rejected, (state, action) => {
-                state.authStatus = EAuthStatuses.UNAUTHENTICATED
+                state.authStatus = EAuthStatus.UNAUTHENTICATED
             })
-    }
+    },
 })
 
-export const { } = authSlice.actions
+export const {} = authSlice.actions

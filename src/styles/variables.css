@@ -1,0 +1,45 @@
+:root {
+    /* colors */
+    --tdc-regular-black-cl: #0f0f0f;
+    --tdc-regular-violet-cl: #766ac8;
+    --tdc-regular-bg-darkGray-cl: #212121;
+    --tdc-regular-hover-card-cl: #303030;
+    --tdc-regular-icon-cl: #9ca3af;
+    --tdc-regular-icon-btn-cl: #414141;
+    --tdc-regular-placeholder-text-cl: #9ca3af;
+    --tdc-regular-recipient-msg-time-cl: #747474;
+    --tdc-regular-creator-msg-time-cl: #d6c3e2;
+    --tdc-gradient-blue-from-cl: #8b5cf6;
+    --tdc-gradient-violet-to-cl: #d946ef;
+    --tdc-user-avt-gradient-stops-cl: var(--tdc-gradient-blue-from), var(--tdc-gradient-violet-to);
+    --tdc-regular-text-secondary-cl: #aaaaaa;
+
+    /* widths */
+    --tdc-convs-bar-width: 24.1vw;
+    --tdc-info-bar-width: 24vw;
+    --tdc-chat-n-info-container-width: calc(100% - var(--tdc-convs-bar-width));
+    --tdc-messages-list-width: 560px;
+    --tdc-type-message-bar-width: 590px;
+    --tdc-msgs-container-width: calc(100% - var(--tdc-info-bar-width));
+
+    /* heights */
+    --tdc-header-height: 10%;
+    --tdc-chat-container-height: calc(100% - var(--tdc-header-height));
+
+    /* transitions */
+    --tdc-slide-info-bar-timing: cubic-bezier(0.33, 1, 0.68, 1);
+
+    /* translates */
+    --tdc-slide-chat-container: calc(var(--tdc-info-bar-width) / -2);
+    --tdc-slide-header-icons: calc(var(--tdc-info-bar-width) * -1);
+
+    /* background-images */
+    --tdc-user-avt-bgimg: linear-gradient(to right, var(--tdc-user-avt-gradient-stops));
+    --tdc-modal-text-bgimg: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+
+    /* background-size */
+    --tdc-full-bgsize: 100% 100%;
+
+    /* font-sizes */
+    --tdc-user-avt-fsize: 14rem;
+}

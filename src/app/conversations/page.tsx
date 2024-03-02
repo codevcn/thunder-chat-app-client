@@ -1,28 +1,35 @@
-'use client'
+"use client"
 
 import { Navigation } from "./navigation"
 import { Conversations } from "./conversations"
 import { Chat } from "./chat"
 import { Flex } from "antd"
-import { useBackground } from "@/contexts/backgroundContext"
+import { useConvBackground } from "@/contexts/backgroundContext"
+import { memo } from "react"
 
-const ConversationPage = () => {
-    const { background } = useBackground()
-
+const MainSectionOfPage = memo(() => {
     return (
-        <Flex
-            className="ConversationPage bg-regular-black w-full"
-            style={background ? { backgroundImage: `url(${background})` } : {}}
-        >
+        <>
             <Navigation />
 
-            <Flex
-                className="w-full"
-            >
+            <Flex className="w-full">
                 <Conversations />
 
                 <Chat />
             </Flex>
+        </>
+    )
+})
+
+const ConversationPage = () => {
+    const { background } = useConvBackground()
+
+    return (
+        <Flex
+            className="ConversationPage bg-regular-black-cl w-full"
+            style={background ? { backgroundImage: `url(${background})` } : {}}
+        >
+            <MainSectionOfPage />
         </Flex>
     )
 }

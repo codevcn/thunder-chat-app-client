@@ -1,11 +1,10 @@
 import { useRouter, usePathname } from "next/navigation"
-import { TUseAuthRedirect } from "@/utils/types"
+import type { TUseAuthRedirect } from "@/utils/types"
 
 export const useAuthRedirect: TUseAuthRedirect = ({ refresh }) => {
     const params = new URLSearchParams(window.location.search)
-    const redirect = params.get('redirect') || '/account'
+    const redirect = params.get("redirect") || "/account"
     const router = useRouter()
-
     return () => {
         if (refresh) {
             window.open(redirect)
