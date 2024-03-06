@@ -81,8 +81,6 @@ export type TLoginUserParams = {
     password: string
 }
 
-export type TUseAuthRedirect = ({ refresh }: { refresh: boolean }) => () => void
-
 export type TSearchConversationParams = {
     email?: string
     username?: string

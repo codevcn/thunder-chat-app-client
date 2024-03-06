@@ -1,5 +1,5 @@
 // >>> fix this: remove
-import { dev_test_values } from "@/lib/test"
+import { dev_test_values } from "@/providers/test"
 
 import { Flex } from "antd"
 import { faXmark, faCircleInfo, faAt } from "@fortawesome/free-solid-svg-icons"

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { checkAuthThunk } from "./authThunks"
+import { checkAuthThunk } from "./auth.thunk"
 import { EAuthStatus } from "@/utils/enums"
 
 type TAuthState = {

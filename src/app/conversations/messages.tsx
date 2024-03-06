@@ -6,12 +6,12 @@ import { Flex } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckDouble } from "@fortawesome/free-solid-svg-icons"
 import { useEffect, useState, memo } from "react"
-import { fetchMessagesThunk } from "@/redux/messages/messagesThunks"
+import { fetchMessagesThunk } from "@/redux/messages/messages.thunk"
 import type { TConvMessage, TMessage, TUserWithoutPassword } from "@/utils/types"
 import { Spinner } from "@/materials/Spinner"
 import dayjs from "dayjs"
-import { EEventName, ETimeGapOfStickyTime, ETimeFormat } from "@/utils/enums"
-import { ScrollToBottomEventor } from "@/utils/events"
+import { EEventNames, ETimeGapOfStickyTimes, ETimeFormats } from "@/utils/enums"
+import { ScrollToBottomEventor } from "@/utils/CustomEvents"
 import { ScrollToBottomMessageBtn } from "./scrollToBottomMsgBtn"
 import { createPortal } from "react-dom"
 
@@ -146,7 +146,7 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
     }
 
     const publishScrollToBottomMsgEvent = () => {
-        messages_container_ref.current?.addEventListener(EEventName.SCROLL_TO_BOTTOM_MSG, (e) => {
+        messages_container_ref.current?.addEventListener(EEventNames.SCROLL_TO_BOTTOM_MSG, (e) => {
             if (ScrollToBottomEventor.isThisEvent(e)) {
                 scrollToBottomMessage(e.detail.behavior)
             }
@@ -160,7 +160,7 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
         return () => {
             messages_container_ref.current?.removeEventListener("scroll", () => {})
             messages_container_ref.current?.removeEventListener(
-                EEventName.SCROLL_TO_BOTTOM_MSG,
+                EEventNames.SCROLL_TO_BOTTOM_MSG,
                 () => {}
             )
         }
@@ -172,15 +172,15 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
         const today_time_data = dayjs()
 
         if (current_time_data.diff(pre_time_data, "day") === 0) {
-            if (current_time_data.diff(pre_time_data, "hour") > ETimeGapOfStickyTime.IN_HOURS) {
-                return current_time_data.format(ETimeFormat.HH_mm)
+            if (current_time_data.diff(pre_time_data, "hour") > ETimeGapOfStickyTimes.IN_HOURS) {
+                return current_time_data.format(ETimeFormats.HH_mm)
             }
         } else {
             if (current_time_data.diff(today_time_data, "day") === 0) {
                 return "Today"
             }
 
-            return current_time_data.format(ETimeFormat.MMMM_DD_YYYY)
+            return current_time_data.format(ETimeFormats.MMMM_DD_YYYY)
         }
 
         return null
@@ -194,7 +194,7 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
             return "Today"
         }
 
-        return current_time_data.format(ETimeFormat.MMMM_DD_YYYY)
+        return current_time_data.format(ETimeFormats.MMMM_DD_YYYY)
     }
 
     const map_message = (messages: TConvMessage[], user: TUserWithoutPassword) =>

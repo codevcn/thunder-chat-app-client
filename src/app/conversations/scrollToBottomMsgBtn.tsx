@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/hooks/redux"
 import { GAP_TO_SHOW_SCROLL_BTN } from "@/utils/constants"
-import { ScrollToBottomEventor } from "@/utils/events"
+import { ScrollToBottomEventor } from "@/utils/CustomEvents"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Tooltip } from "antd"

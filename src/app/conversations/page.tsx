@@ -4,7 +4,7 @@ import { Navigation } from "./navigation"
 import { Conversations } from "./conversations"
 import { Chat } from "./chat"
 import { Flex } from "antd"
-import { useConvBackground } from "@/contexts/backgroundContext"
+import { useChatBackground } from "@/contexts/chatBackground.context"
 import { memo } from "react"
 
 const MainSectionOfPage = memo(() => {
@@ -22,7 +22,7 @@ const MainSectionOfPage = memo(() => {
 })
 
 const ConversationPage = () => {
-    const { background } = useConvBackground()
+    const { background } = useChatBackground()
 
     return (
         <Flex

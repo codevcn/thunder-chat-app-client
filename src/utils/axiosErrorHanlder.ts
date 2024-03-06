@@ -1,7 +1,7 @@
 import { AxiosError } from "axios"
 import { MAX_LEN_OF_ERROR_MESSAGE } from "./constants"
-import { TAxiosError, THttpErrorResBody } from "./types"
-import { ECustomHttpErrMsg, EInvalidHttpErrMsg, EServerErrMsg } from "./enums"
+import type { TAxiosError, THttpErrorResBody } from "./types"
+import { ECustomHttpErrMsgs, EInvalidHttpErrMsgs, EServerErrMsgs } from "./enums"
 import { HttpStatusCode } from "axios"
 
 class CustomAxiosError {
@@ -33,7 +33,7 @@ class CustomAxiosError {
 
             if (typeof data_of_response === "string") {
                 this.isUserError = false
-                this.message = EInvalidHttpErrMsg.INVALID_REQUEST
+                this.message = EInvalidHttpErrMsgs.INVALID_REQUEST
             } else {
                 this.isUserError = data_of_response.isUserException //check if is error due to user or not
                 this.message = data_of_response.message //update error message
@@ -45,7 +45,7 @@ class CustomAxiosError {
         } else if (this.originalError.request) {
             //The request was made but no response was received
             this.statusCode = HttpStatusCode.BadGateway
-            this.message = EServerErrMsg.BAD_NETWORK_OR_ERROR
+            this.message = EServerErrMsgs.BAD_NETWORK_OR_ERROR
         } else {
             //Something happened in setting up the request that triggered an Error
             this.message = this.originalError.message
@@ -55,7 +55,7 @@ class CustomAxiosError {
 
 const axiosErrorHandler = (
     orginal_error: AxiosError<THttpErrorResBody>,
-    client_message = ECustomHttpErrMsg.SOMETHING_WENT_WRONG
+    client_message = ECustomHttpErrMsgs.SOMETHING_WENT_WRONG
 ): TAxiosError => {
     const error = new CustomAxiosError(orginal_error, client_message)
 

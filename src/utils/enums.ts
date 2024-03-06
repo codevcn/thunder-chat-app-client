@@ -4,32 +4,47 @@ export enum EAuthStatus {
     UNAUTHENTICATED = "AUTH_STATUS_UNAUTHENTICATED",
 }
 
-export enum EConversationErrMsg {
+export enum EConversationErrMsgs {
     CONV_NOT_FOUND = "Conversation not found",
 }
 
-export enum EInvalidHttpErrMsg {
+export enum EInvalidHttpErrMsgs {
     INVALID_REQUEST = "Invalid request",
 }
 
-export enum EEventName {
+export enum EEventNames {
     SCROLL_TO_BOTTOM_MSG = "SCROLL_TO_BOTTOM_MSG",
 }
 
-export enum EServerErrMsg {
+export enum EServerErrMsgs {
     BAD_NETWORK_OR_ERROR = "Bad network or error from server.",
 }
 
-export enum ECustomHttpErrMsg {
+export enum ECustomHttpErrMsgs {
     SOMETHING_WENT_WRONG = "Something went wrong, please try again minutes later!",
 }
 
-export enum ETimeGapOfStickyTime {
+export enum ETimeGapOfStickyTimes {
     IN_HOURS = 1,
     IN_DAYS = 1,
 }
 
-export enum ETimeFormat {
+export enum ETimeFormats {
     MMMM_DD_YYYY = "MMMM DD, YYYY",
     HH_mm = "HH:mm",
+}
+
+export enum ECommonStatus {
+    SUCCESS = "success",
+    FAIL = "fail",
+    ERROR = "error",
+}
+
+export enum ESocketEventNames {
+    client_connected = "client_connected",
+    connect_error = "connect_error",
+}
+
+export enum ESocketNamespaces {
+    Chatting = "Chatting",
 }

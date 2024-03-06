@@ -1,7 +1,7 @@
-import { searchConversationService } from "@/services/conversationsService"
+import { searchConversationService } from "@/services/conversations.service"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
 export const searchConversationThunk = createAsyncThunk(
-    'conversations/search',
+    "conversations/search",
     searchConversationService
 )

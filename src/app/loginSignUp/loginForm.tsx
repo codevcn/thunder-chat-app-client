@@ -16,7 +16,7 @@ import axiosErrorHandler from "@/utils/axiosErrorHanlder"
 import axios from "axios"
 import { Form, Input } from "antd"
 import { useAuthRedirect } from "@/hooks/redirect"
-import { useSocketClient } from "@/contexts/socketContext"
+import { useSocketChatting } from "@/contexts/socket.context"
 
 type TLogInUserForm = {
     email: string
@@ -25,8 +25,8 @@ type TLogInUserForm = {
 
 const LoginForm = ({ typedEmail }: { typedEmail: string }) => {
     const [loading, setLoading] = useState<boolean>(false)
-    const redirect = useAuthRedirect({ refresh: true })
-    const socket = useSocketClient()
+    const redirect = useAuthRedirect()
+    const socket = useSocketChatting()
 
     const loginUser = async (form_data: TLogInUserForm) => {
         setLoading(true)
@@ -38,7 +38,7 @@ const LoginForm = ({ typedEmail }: { typedEmail: string }) => {
             })
             socket.connect()
             toast.success("Login Successfully!")
-            redirect()
+            redirect({ refresh: true })
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 toast.error(axiosErrorHandler(error).message)

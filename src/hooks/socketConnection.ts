@@ -1,11 +1,19 @@
 import { useEffect } from "react"
-import { useAuth } from "./auth"
-import { EAuthStatus } from "@/utils/enums"
-import { useSocketClient } from "@/contexts/socketContext"
+import { EAuthStatus, ESocketEventNames } from "@/utils/enums"
+import { useSocketChatting } from "@/contexts/socket.context"
+import { useAuthStatus } from "@/contexts/auth.context"
 
 export const useSocketConnection = () => {
-    const { authStatus } = useAuth()
-    const socketClient = useSocketClient()
+    const authStatus = useAuthStatus()
+    const socketClient = useSocketChatting()
+
+    socketClient.on(ESocketEventNames.client_connected, () => {
+        console.log(">>> Socket connected to server")
+    })
+
+    socketClient.on(ESocketEventNames.connect_error, (error) => {
+        console.log(">>> Socket is fail to connect to server >>>", error)
+    })
 
     useEffect(() => {
         if (authStatus === EAuthStatus.AUTHENTICATED) {
@@ -14,6 +22,8 @@ export const useSocketConnection = () => {
             socketClient.disconnect()
         }
 
-        return () => {}
+        return () => {
+            socketClient.off(ESocketEventNames.client_connected, () => {})
+        }
     }, [authStatus])
 }

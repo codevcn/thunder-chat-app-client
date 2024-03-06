@@ -10,7 +10,7 @@ import {
     fetchConversationThunk,
     fetchMessagesThunk,
     startConversationThunk,
-} from "./messagesThunks"
+} from "./messages.thunk"
 
 type TMessagesState = {
     conversation: TConversation | null

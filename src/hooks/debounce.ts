@@ -1,15 +1,6 @@
-
-type TUseDebounce = (delay: number) => (
-    (
-        handler: (...params: any) => void
-    ) => (
-            (...params: any) => void
-        )
-)
-
-export const useDebounce: TUseDebounce = (delay) => (handler) => {
+export const useDebounce = (delay: number) => (handler: (...params: any) => void) => {
     let timer: any
-    return (...args: any[]) => {
+    return (...args: any) => {
         clearTimeout(timer)
         timer = setTimeout(() => handler(...args), delay)
     }

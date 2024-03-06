@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import type { TUserWithoutPassword } from "@/utils/types"
-import { checkAuthThunk } from "../auth/authThunks"
+import { checkAuthThunk } from "../auth/auth.thunk"
 
 type TAuthState = {
     user: TUserWithoutPassword | null

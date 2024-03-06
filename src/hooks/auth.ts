@@ -1,9 +1,13 @@
 import { useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "./redux"
-import { checkAuthThunk } from "@/redux/auth/authThunks"
+import { checkAuthThunk } from "@/redux/auth/auth.thunk"
 import { EAuthStatus } from "@/utils/enums"
 
-export const useAuth = () => {
+type TUseAuthReturn = {
+    authStatus: EAuthStatus
+}
+
+export const useAuth = (): TUseAuthReturn => {
     const { authStatus } = useAppSelector((state) => state.auth)
     const dispatch = useAppDispatch()
 

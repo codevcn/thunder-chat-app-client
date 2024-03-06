@@ -1,6 +1,6 @@
 "use client"
 
-import { SocketClientContext, socketClient } from "@/contexts/socketContext"
+import { socketClientChatting, SocketContextChatting } from "@/contexts/socket.context"
 import { useSocketConnection } from "@/hooks/socketConnection"
 
 const SocketConnection = ({ children }: { children: JSX.Element }) => {
@@ -10,8 +10,8 @@ const SocketConnection = ({ children }: { children: JSX.Element }) => {
 
 export const SocketProvider = ({ children }: { children: JSX.Element }) => {
     return (
-        <SocketClientContext.Provider value={socketClient}>
+        <SocketContextChatting.Provider value={socketClientChatting}>
             <SocketConnection>{children}</SocketConnection>
-        </SocketClientContext.Provider>
+        </SocketContextChatting.Provider>
     )
 }

@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { authSlice } from '@/redux/auth/authSlice'
-import { userSlice } from './user/userSlice'
-import { conversationsSlice } from './conversations/conversationsSlice'
-import { messagesSlice } from './messages/messagesSlice'
+import { configureStore } from "@reduxjs/toolkit"
+import { authSlice } from "@/redux/auth/auth.slice"
+import { userSlice } from "./user/user.slice"
+import { conversationsSlice } from "./conversations/conversationsSlice"
+import { messagesSlice } from "./messages/messages.slice"
 
 const store = configureStore({
     reducer: {

@@ -1,12 +1,12 @@
 import dayjs from "dayjs"
 import { THE_LAST_CONVERSATION_ID_NAME } from "./constants"
-import { TUser } from "./types"
+import type { TUser } from "./types"
 
-export const storeConversationId = (id: string) => {
+export const storeConversationIdAtLocal = (id: string) => {
     localStorage.setItem(THE_LAST_CONVERSATION_ID_NAME, id)
 }
 
-export const getConversationId = () => {
+export const getConversationIdFromLocal = () => {
     return localStorage.getItem(THE_LAST_CONVERSATION_ID_NAME)
 }
 
@@ -20,4 +20,13 @@ export const setLastSeen = (date: string) => {
 
 export const getFullName = (user: TUser) => {
     return `${user.firstName} ${user.lastName}`
+}
+
+/**
+ * function to set routes don't need guard
+ * @param routes are routes start with letter "/"
+ * @returns routes
+ */
+export const setNonGuardRoutes = (...routes: string[]) => {
+    return routes
 }

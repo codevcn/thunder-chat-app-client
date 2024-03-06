@@ -1,6 +1,23 @@
 import dayjs from "dayjs"
 import type { TConversationCard, TMessage } from "@/utils/types"
 
+const getQueryStringWithPathname = () => {
+    // Lấy URL hiện tại
+    const url = window.location.href
+
+    // Tạo một đối tượng URL từ URL hiện tại
+    const urlObject = new URL(url)
+
+    // Lấy pathname
+    const pathname = urlObject.pathname
+
+    // Lấy query string
+    const queryString = urlObject.search
+
+    console.log(">>> Result >>>", `"${pathname}"`)
+    console.log(">>> Result >>>", `"${queryString}"`)
+}
+
 function random_text(length: number): string {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     let result: string = ""
@@ -419,4 +436,5 @@ export const dev_test_values = {
     messages,
     random_between_two_numbers,
     getTestMessages,
+    getQueryStringWithPathname,
 }

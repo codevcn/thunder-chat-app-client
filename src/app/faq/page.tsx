@@ -1,6 +1,6 @@
 "use client"
 
-import { socketClient } from "@/contexts/socketContext"
+import { socketClient } from "@/contexts/socket.context"
 import { useEffect } from "react"
 
 export default function FAQPage() {
@@ -10,29 +10,29 @@ export default function FAQPage() {
         }
     }
 
-    useEffect(() => {
-        function onConnect() {
-            console.log(">>> run this connected")
-        }
+    // useEffect(() => {
+    //     function onConnect() {
+    //         console.log(">>> run this connected")
+    //     }
 
-        function onDisconnect() {
-            console.log(">>> run this disconnect")
-        }
+    //     function onDisconnect() {
+    //         console.log(">>> run this disconnect")
+    //     }
 
-        function onFooEvent() {
-            console.log(">>> run this foo event")
-        }
+    //     function onFooEvent() {
+    //         console.log(">>> run this foo event")
+    //     }
 
-        socketClient.on("connect", onConnect)
-        socketClient.on("disconnect", onDisconnect)
-        socketClient.on("foo", onFooEvent)
+    //     socketClient.on("connect", onConnect)
+    //     socketClient.on("disconnect", onDisconnect)
+    //     socketClient.on("foo", onFooEvent)
 
-        return () => {
-            socketClient.off("connect", onConnect)
-            socketClient.off("disconnect", onDisconnect)
-            socketClient.off("foo", onFooEvent)
-        }
-    }, [])
+    //     return () => {
+    //         socketClient.off("connect", onConnect)
+    //         socketClient.off("disconnect", onDisconnect)
+    //         socketClient.off("foo", onFooEvent)
+    //     }
+    // }, [])
 
     return (
         <div className="bg-black p-5 box-border">

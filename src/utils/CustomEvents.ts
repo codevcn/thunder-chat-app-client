@@ -1,4 +1,4 @@
-import { EEventName } from "./enums"
+import { EEventNames } from "./enums"
 
 type TCreateEventPayload = {
     behavior: ScrollBehavior
@@ -6,7 +6,7 @@ type TCreateEventPayload = {
 
 export class ScrollToBottomEventor {
     static createEvent(payload: TCreateEventPayload): CustomEvent<unknown> {
-        return new CustomEvent<TCreateEventPayload>(EEventName.SCROLL_TO_BOTTOM_MSG, {
+        return new CustomEvent<TCreateEventPayload>(EEventNames.SCROLL_TO_BOTTOM_MSG, {
             detail: { behavior: payload.behavior },
         })
     }

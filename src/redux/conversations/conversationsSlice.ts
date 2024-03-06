@@ -1,5 +1,5 @@
 // >>> fix this: remove
-import { dev_test_values } from "@/lib/test"
+import { dev_test_values } from "@/providers/test"
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 import type { TConversationCard, TUserWithProfile } from "@/utils/types"

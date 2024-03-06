@@ -1,20 +1,15 @@
 "use client"
 
-import { useAuth } from "@/hooks/auth"
 import { EAuthStatus } from "@/utils/enums"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useRedirectToLogin } from "@/hooks/redirect"
 import { AppLoading } from "./appLoading"
+import { usePathname } from "next/navigation"
+import { useAuthStatus } from "@/contexts/auth.context"
 
-export const RouteGuard = ({
-    children,
-    fallback,
-}: {
-    children: JSX.Element
-    fallback?: JSX.Element
-}) => {
-    const { authStatus } = useAuth()
+const Guard = ({ children }: { children: JSX.Element }) => {
+    const authStatus = useAuthStatus()
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
     const redirect_to_login = useRedirectToLogin()
 
@@ -33,5 +28,19 @@ export const RouteGuard = ({
 
     if (isAuthenticated) return children
 
-    return fallback || <AppLoading />
+    return <AppLoading />
+}
+
+export const RouteGuard = ({
+    children,
+    nonGuardRoutes,
+}: {
+    children: JSX.Element
+    nonGuardRoutes: string[]
+}) => {
+    if (nonGuardRoutes.includes(usePathname())) {
+        return children
+    }
+
+    return <Guard>{children}</Guard>
 }

@@ -5,7 +5,7 @@ import {
 } from "@/apis/conversations"
 import type { TSearchConversationParams, TStartConversationParams } from "@/utils/types"
 import { ConversationError } from "@/utils/CustomErrors"
-import { EConversationErrMsg } from "@/utils/enums"
+import { EConversationErrMsgs } from "@/utils/enums"
 
 export const searchConversationService = async (payload: TSearchConversationParams) => {
     try {
@@ -30,7 +30,7 @@ export const fetchConversationService = async (conversationId: number) => {
         const { data } = await getFetchConversation(conversationId)
 
         if (data) return data
-        else throw new ConversationError(EConversationErrMsg.CONV_NOT_FOUND)
+        else throw new ConversationError(EConversationErrMsgs.CONV_NOT_FOUND)
     } catch (error) {
         throw error
     }

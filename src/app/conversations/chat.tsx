@@ -1,7 +1,7 @@
 "use client"
 
 // >>> fix this: remove
-import { dev_test_values } from "@/lib/test"
+import { dev_test_values } from "@/providers/test"
 
 import { Avatar, Flex, Tooltip, Skeleton } from "antd"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -10,11 +10,11 @@ import { IconButton } from "@/materials/IconButton"
 import { Messages } from "./messages"
 import { useAppDispatch, useAppSelector } from "@/hooks/redux"
 import { useEffect, useState, memo } from "react"
-import { fetchConversationThunk } from "@/redux/messages/messagesThunks"
+import { fetchConversationThunk } from "@/redux/messages/messages.thunk"
 import { useSearchParams } from "next/navigation"
 import validator from "validator"
 import { CONV_ID_QUERY_KEY } from "@/utils/constants"
-import { pushMsg } from "@/redux/messages/messagesSlice"
+import { pushMsg } from "@/redux/messages/messages.slice"
 import {
     faMicrophone,
     faPaperclip,

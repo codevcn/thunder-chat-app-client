@@ -1,7 +1,7 @@
 import { getFetchMessages } from "@/apis/messages"
 
 // >>> fix this: remove
-import { dev_test_values } from "@/lib/test"
+import { dev_test_values } from "@/providers/test"
 
 export const fetchMessagesService = async (conversationId: number) => {
     try {
