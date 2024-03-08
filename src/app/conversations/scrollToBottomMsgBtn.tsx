@@ -11,10 +11,8 @@ export const ScrollToBottomMessageBtn = memo(
         const [showScrollBtn, setShowScrollBtn] = useState<boolean>(false)
         const { infoBarIsOpened } = useAppSelector(({ conversations }) => conversations)
 
-        const scrollToBottomMessage = (behavior: ScrollBehavior) => {
-            messagesContainerRef.current?.dispatchEvent(
-                ScrollToBottomEventor.createEvent({ behavior })
-            )
+        const scrollToBottomMessage = () => {
+            messagesContainerRef.current?.dispatchEvent(ScrollToBottomEventor.createEvent())
         }
 
         useEffect(() => {
@@ -35,9 +33,8 @@ export const ScrollToBottomMessageBtn = memo(
 
         return (
             <div
-                onClick={() => scrollToBottomMessage("smooth")}
+                onClick={() => scrollToBottomMessage()}
                 className={`${showScrollBtn ? "bottom-24 opacity-100" : "-bottom-20 opacity-0"} z-50 fixed right-8 cursor-pointer transition-[bottom,opacity] duration-200`}
-                onDoubleClick={() => scrollToBottomMessage("instant")}
             >
                 <Tooltip title="Go to bottom" placement="left">
                     <div

@@ -61,7 +61,7 @@ const CreatorMessage = ({ content, time, isNewMsg }: TMessageProps) => {
 const RecipientMessage = ({ content, time, isNewMsg }: TMessageProps) => {
     return (
         <div
-            className={`${""} bg-regular-bg-darkGray-cl rounded-t-2xl rounded-br-2xl pt-1.5 pb-2 px-2 w-fit relative`}
+            className={`${""} bg-regular-darkGray-cl rounded-t-2xl rounded-br-2xl pt-1.5 pb-2 px-2 w-fit relative`}
         >
             <p className="text-sm inline break-all">{content}</p>
             <span className="text-xs text-regular-recipient-msg-time-cl float-right ml-3 relative right-0 top-2">
@@ -130,15 +130,26 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
     const user = useAppSelector(({ user }) => user.user)
     const messages_container_ref = useRef<HTMLDivElement>(null)
 
-    const scrollToBottomMessage = async (behavior: ScrollBehavior) => {
+    const scrollToBottomMessage = async () => {
+        messages_container_ref.current?.scrollTo({
+            top: -100,
+            behavior: "instant",
+        })
         messages_container_ref.current?.scrollTo({
             top: -1,
-            behavior: behavior,
+            behavior: "smooth",
+        })
+    }
+
+    const scrollSendMsg = () => {
+        messages_container_ref.current?.scrollTo({
+            top: -1,
+            behavior: "smooth",
         })
     }
 
     useEffect(() => {
-        scrollToBottomMessage("smooth")
+        scrollSendMsg()
     }, [messages])
 
     const fetchMessages = async () => {
@@ -148,7 +159,7 @@ export const Messages = memo(({ conversationId }: { conversationId: number }) =>
     const publishScrollToBottomMsgEvent = () => {
         messages_container_ref.current?.addEventListener(EEventNames.SCROLL_TO_BOTTOM_MSG, (e) => {
             if (ScrollToBottomEventor.isThisEvent(e)) {
-                scrollToBottomMessage(e.detail.behavior)
+                scrollToBottomMessage()
             }
         })
     }

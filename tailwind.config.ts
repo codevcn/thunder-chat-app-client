@@ -16,6 +16,10 @@ const config: Config = {
             roboto: ["var(--ggfont-roboto)"],
         },
         extend: {
+            screens: {
+                "screen-medium-chatting": "970px",
+                "screen-large-chatting": "1275px",
+            },
             backgroundImage: {
                 "user-avt-bgimg": "var(--tdc-user-avt-bgimg)",
                 "modal-text-bgimg": "var(--tdc-modal-text-bgimg)",
@@ -24,7 +28,9 @@ const config: Config = {
                 "regular-full-bgsize": "var(--tdc-full-bgsize)",
             },
             colors: {
-                "regular-bg-darkGray-cl": "var(--tdc-regular-bg-darkGray-cl)",
+                "regular-darkGray-cl": "var(--tdc-regular-darkGray-cl)",
+                "regular-white-cl": "var(--tdc-regular-white-cl)",
+                "regular-trans-cl": "var(--tdc-regular-trans-cl)",
                 "regular-black-cl": "var(--tdc-regular-black-cl)",
                 "regular-violet-cl": "var(--tdc-regular-violet-cl)",
                 "regular-hover-card-cl": "var(--tdc-regular-hover-card-cl)",
@@ -34,14 +40,17 @@ const config: Config = {
                 "regular-recipient-msg-time-cl": "var(--tdc-regular-recipient-msg-time-cl)",
                 "regular-creator-msg-time-cl": "var(--tdc-regular-creator-msg-time-cl)",
                 "regular-text-secondary-cl": "var(--tdc-regular-text-secondary-cl)",
+                "regular-info-bar-bgcl": "var(--tdc-regular-info-bar-bgcl)",
             },
             fontSize: {
                 "user-avt-fsize": "var(--tdc-user-avt-fsize)",
             },
             width: {
-                "convs-bar-width": "var(--tdc-convs-bar-width)",
+                "convs-card-width": "var(--tdc-convs-card-width)",
+                "convs-list-width": "var(--tdc-convs-list-width)",
                 "chat-container-width": "var(--tdc-chat-container-width)",
                 "info-bar-width": "var(--tdc-info-bar-width)",
+                "info-bar-mb-width": "var(--tdc-info-bar-mb-width)",
                 "chat-n-info-container-width": "var(--tdc-chat-n-info-container-width)",
                 "messages-list-width": "var(--tdc-messages-list-width)",
                 "msgs-container-width": "var(--tdc-msgs-container-width)",
@@ -53,6 +62,7 @@ const config: Config = {
             },
             inset: {
                 "slide-info-bar": "var(--tdc-info-bar-width)",
+                "slide-info-mb-bar": "var(--tdc-info-bar-mb-width)",
             },
             transitionTimingFunction: {
                 "slide-info-bar-timing": "var(--tdc-slide-info-bar-timing)",

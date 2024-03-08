@@ -37,7 +37,6 @@ const LoginForm = ({ typedEmail }: { typedEmail: string }) => {
                 password: form_data.password,
             })
             socket.connect()
-            toast.success("Login Successfully!")
             redirect({ refresh: true })
         } catch (error) {
             if (axios.isAxiosError(error)) {

@@ -88,7 +88,7 @@ export const InfoBar = () => {
 
     return (
         <Flex
-            className={`${open ? "right-0" : "-right-slide-info-bar"} overflow-hidden border-l-regular-hover-card-cl border-l z-[60] transition-[right] absolute duration-300 ease-slide-info-bar-timing w-info-bar-width h-full`}
+            className={`${open ? "right-0" : "-right-slide-info-mb-bar screen-large-chatting:-right-slide-info-bar"} bg-regular-info-bar-bgcl screen-large-chatting:bg-regular-darkGray-cl w-info-bar-mb-width screen-large-chatting:w-info-bar-width h-full overflow-hidden border-l-regular-hover-card-cl border-l z-[60] transition-[right] absolute duration-[0.4s] screen-large-chatting:duration-300 ease-slide-info-bar-timing`}
             vertical
         >
             <Flex className="h-header-height py-[7px] px-3" align="center" gap={15}>
@@ -105,7 +105,7 @@ export const InfoBar = () => {
 
             {recipient && (
                 <div className="h-chat-container-height w-full">
-                    <div className="overflow-y-scroll styled-scrollbar h-full bg-regular-bg-darkGray-cl">
+                    <div className="overflow-y-scroll styled-scrollbar h-full bg-regular-info-bar-bgcl">
                         <Avatar recipient={recipient} />
 
                         <ProfileInfo recipient={recipient} />

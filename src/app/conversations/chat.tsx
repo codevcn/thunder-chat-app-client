@@ -38,7 +38,7 @@ const Header = ({
     return (
         <Flex
             justify="space-between"
-            className="px-6 py-1.5 bg-regular-bg-darkGray-cl w-full box-border h-header-height"
+            className="px-6 py-1.5 bg-regular-darkGray-cl w-full box-border h-header-height"
             gap={10}
         >
             {recipient ? (
@@ -76,7 +76,7 @@ const Header = ({
             )}
 
             <Flex
-                className={`${infoBarIsOpened ? "translate-x-slide-header-icons" : "translate-x-0"} transition duration-300 ease-slide-info-bar-timing`}
+                className={`${infoBarIsOpened ? "screen-large-chatting:translate-x-slide-header-icons" : "translate-x-0"} transition duration-300 ease-slide-info-bar-timing`}
                 align="center"
                 gap={10}
             >
@@ -149,7 +149,7 @@ const TypeMessageBar = memo(() => {
         fetchedMsgs && (
             <Flex className="pt-2 pb-4 w-type-message-bar-width box-border" align="center" gap={10}>
                 <Flex
-                    className="relative z-10 w-full rounded-2xl bg-regular-bg-darkGray-cl px-3 border-2 border-regular-bg-darkGray-cl hover:border-regular-violet-cl transition duration-200"
+                    className="relative z-10 w-full rounded-2xl bg-regular-darkGray-cl px-3 border-2 border-regular-darkGray-cl hover:border-regular-violet-cl transition duration-200"
                     align="center"
                     gap={5}
                 >
@@ -157,7 +157,7 @@ const TypeMessageBar = memo(() => {
                         <FontAwesomeIcon icon={faFaceSmile} color="inherit" size="xl" />
                     </div>
 
-                    <div className="relative bg-regular-bg-darkGray-cl w-full">
+                    <div className="relative bg-regular-darkGray-cl w-full">
                         <Input.TextArea
                             className="bg-transparent text-base p-3 px-1 z-10 styled-scrollbar border-transparent text-white hover:border-transparent focus:border-transparent focus:shadow-none"
                             onChange={typing}
@@ -179,7 +179,7 @@ const TypeMessageBar = memo(() => {
 
                 <Tooltip title={message ? "Send message" : "Record voice message"} placement="top">
                     <Flex
-                        className={`bg-regular-bg-darkGray-cl rounded-full p-[27px] relative hover:text-white ${message ? "text-regular-violet-cl" : "text-gray-500"} cursor-pointer hover:bg-regular-violet-cl`}
+                        className={`bg-regular-darkGray-cl rounded-full p-[27px] relative hover:text-white ${message ? "text-regular-violet-cl" : "text-gray-500"} cursor-pointer hover:bg-regular-violet-cl`}
                         justify="center"
                         align="center"
                     >
@@ -225,7 +225,7 @@ export const Chat = () => {
     return (
         conversationId &&
         conversation && (
-            <Flex className="w-chat-n-info-container-width box-border overflow-hidden relative">
+            <Flex className="screen-medium-chatting:w-chat-n-info-container-width w-full box-border overflow-hidden relative">
                 <Flex
                     className="Chatting w-full box-border h-screen bg-no-repeat bg-transparent bg-cover bg-center relative"
                     vertical
@@ -233,8 +233,8 @@ export const Chat = () => {
                 >
                     <Header infoBarIsOpened={infoBarIsOpened} onOpenInfoBar={hanldeOpenInfoBar} />
 
-                    <Flex //
-                        className={`${infoBarIsOpened ? "translate-x-slide-chat-container w-msgs-container-width" : "translate-x-0 w-full"} h-chat-container-height transition duration-300 ease-slide-info-bar-timing overflow-hidden`}
+                    <Flex
+                        className={`${infoBarIsOpened ? "screen-large-chatting:translate-x-slide-chat-container screen-large-chatting:w-msgs-container-width" : "translate-x-0 w-full"} h-chat-container-height transition duration-300 ease-slide-info-bar-timing overflow-hidden`}
                         vertical
                         justify="space-between"
                         align="center"

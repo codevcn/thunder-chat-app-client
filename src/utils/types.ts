@@ -93,7 +93,7 @@ export type TConversationCard = {
     title: string
     subtitle: string
     lastMessageTime: string
-    pinIndex: number
+    pinIndex: number | null
 }
 
 export type TStartConversationParams = {

@@ -341,7 +341,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://cdn-icons-png.flaticon.com/512/8930/8930382.png",
         lastMessageTime: new Date(dayjs().subtract(0, "day").toISOString()).toISOString(),
         title: "Saved Messages",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "Bookmark",
     },
     {
@@ -349,7 +349,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
         lastMessageTime: new Date(dayjs().subtract(7, "day").toISOString()).toISOString(),
         title: "Wibu Kingdom",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "wibu la tao",
     },
     {
@@ -357,7 +357,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/bookmarks.png",
         lastMessageTime: new Date(dayjs().subtract(8, "day").toISOString()).toISOString(),
         title: "Bem",
-        pinIndex: 1,
+        pinIndex: 2,
         subtitle:
             "co ven duong thoi ma lam sao voi dc may, tu sau cau het tu em gai kia chang can bien lon hoac la bao giong",
     },
@@ -366,7 +366,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/8.webp",
         lastMessageTime: new Date(dayjs().subtract(9, "day").toISOString()).toISOString(),
         title: "H",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "wibu la tao",
     },
     {
@@ -374,7 +374,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/5.webp",
         lastMessageTime: new Date(dayjs().subtract(10, "day").toISOString()).toISOString(),
         title: "Okay",
-        pinIndex: 2,
+        pinIndex: 1,
         subtitle: "wibu la tao",
     },
     {
@@ -382,7 +382,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
         lastMessageTime: new Date(dayjs().subtract(11, "day").toISOString()).toISOString(),
         title: "Daddy Daddy Doo",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "Thuong dang",
     },
     {
@@ -399,7 +399,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
         lastMessageTime: new Date(dayjs().subtract(13, "day").toISOString()).toISOString(),
         title: "0 o 0",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "wibu la tao",
     },
     {
@@ -407,7 +407,7 @@ const conversations: TConversationCard[] = [
         avatar: "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp",
         lastMessageTime: new Date(dayjs().subtract(14, "day").toISOString()).toISOString(),
         title: "Crying",
-        pinIndex: 0,
+        pinIndex: null,
         subtitle: "wibu la tao",
     },
     {
@@ -416,7 +416,7 @@ const conversations: TConversationCard[] = [
         lastMessageTime: new Date(dayjs().subtract(2, "day").toISOString()).toISOString(),
         title: "Chass2",
         pinIndex: 4,
-        subtitle: "123999 diqdhoqdi dqiodqj",
+        subtitle: "123999 diqdhoqdi dqiodqj cadaaddad da dawjddoiann[akclm cnjaldndnqp",
     },
 ]
 

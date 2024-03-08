@@ -38,10 +38,7 @@ export default function FAQPage() {
         <div className="bg-black p-5 box-border">
             <p>FAQ Page</p>
 
-            <button
-                onClick={todo}
-                className="p-3 m-5 border border-black bg-regular-bg-darkGray-cl"
-            >
+            <button onClick={todo} className="p-3 m-5 border border-black bg-regular-darkGray-cl">
                 socket
             </button>
         </div>

@@ -32,7 +32,7 @@ const navs: Navs = [
 export const Navigation = () => {
     return (
         <Flex
-            className="h-screen bg-regular-bg-darkGray-cl border-r border-r-regular-hover-card-cl pt-6 pb-3 w-[55px] box-border"
+            className="hidden screen-medium-chatting:flex h-screen bg-regular-darkGray-cl border-r border-r-regular-hover-card-cl pt-6 pb-3 w-[55px] box-border"
             justify="space-between"
             vertical
             gap="middle"

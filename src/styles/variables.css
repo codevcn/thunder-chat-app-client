@@ -1,8 +1,10 @@
 :root {
     /* colors */
     --tdc-regular-black-cl: #0f0f0f;
+    --tdc-regular-white-cl: #fffffff9;
+    --tdc-regular-trans-cl: transparent;
     --tdc-regular-violet-cl: #766ac8;
-    --tdc-regular-bg-darkGray-cl: #212121;
+    --tdc-regular-darkGray-cl: #212121;
     --tdc-regular-hover-card-cl: #303030;
     --tdc-regular-icon-cl: #9ca3af;
     --tdc-regular-icon-btn-cl: #414141;
@@ -13,11 +15,14 @@
     --tdc-gradient-violet-to-cl: #d946ef;
     --tdc-user-avt-gradient-stops-cl: var(--tdc-gradient-blue-from), var(--tdc-gradient-violet-to);
     --tdc-regular-text-secondary-cl: #aaaaaa;
+    --tdc-regular-info-bar-bgcl: #181818;
 
     /* widths */
-    --tdc-convs-bar-width: 24.1vw;
+    --tdc-convs-card-width: 300px;
+    --tdc-convs-list-width: 19rem;
     --tdc-info-bar-width: 24vw;
-    --tdc-chat-n-info-container-width: calc(100% - var(--tdc-convs-bar-width));
+    --tdc-info-bar-mb-width: 420px;
+    --tdc-chat-n-info-container-width: calc(100% - var(--tdc-convs-card-width));
     --tdc-messages-list-width: 560px;
     --tdc-type-message-bar-width: 590px;
     --tdc-msgs-container-width: calc(100% - var(--tdc-info-bar-width));
@@ -42,4 +47,7 @@
 
     /* font-sizes */
     --tdc-user-avt-fsize: 14rem;
+
+    /* breakpoint */
+    --tdc-chat-brp: 970px;
 }
